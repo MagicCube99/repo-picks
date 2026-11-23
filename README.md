@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://magiccube99.github.io/repo-picks/"><b>🌐 在线浏览</b></a>
-  &nbsp;·&nbsp; 当前收录 <b>17</b> 个项目 / <b>8</b> 个分类 / MIT License
+  &nbsp;·&nbsp; 当前收录 <b>25</b> 个项目 / <b>10</b> 个分类 / MIT License
 </p>
 
 ---
@@ -20,13 +20,15 @@
 - [🛰️ 网络与代理工具](#-网络与代理工具)
 - [📚 语料与电子书宝库](#-语料与电子书宝库)
 - [🧰 桌面效率工具](#-桌面效率工具)
+- [🎬 AI 视频与内容创作](#-ai-视频与内容创作)
+- [📡 智能监控与自动化](#-智能监控与自动化)
 
 ---
 
 ## 🤖 智能体与 Agent 技能
 
 <details>
-<summary>共 4 个项目（点击展开）</summary>
+<summary>共 7 个项目（点击展开）</summary>
 
 <br>
 
@@ -36,19 +38,23 @@
 | [dmoshehun-prog/learn-from-materials](https://github.com/dmoshehun-prog/learn-from-materials) `Python` ![Stars](https://img.shields.io/github/stars/dmoshehun-prog/learn-from-materials?style=flat-square&label=%20) | 将书籍论文转为可追溯、测验的互动学习网页。 | 跨 Agent 规范，深度溯源防幻觉 |
 | [zenstory-ai/novel-to-game](https://github.com/zenstory-ai/novel-to-game) `Markdown` ![Stars](https://img.shields.io/github/stars/zenstory-ai/novel-to-game?style=flat-square&label=%20) | 驱动 Agent 通读拆书并将小说自动改编为可玩游戏。 | 策划开发盲玩全链路技能闭环 |
 | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) `JavaScript` ![Stars](https://img.shields.io/github/stars/cloudflare/security-audit-skill?style=flat-square&label=%20) | 面向编程智能体的多阶段安全审计技能。 | 机器可读、可独立复核 |
+| [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) `TypeScript` ![Stars](https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat-square&label=%20) | 用 AI 智能体一键克隆任意网站。 | 一条命令复刻整站前端 |
+| [larashero3-dotcom/lieflat-gongwen](https://github.com/larashero3-dotcom/lieflat-gongwen) `Python` ![Stars](https://img.shields.io/github/stars/larashero3-dotcom/lieflat-gongwen?style=flat-square&label=%20) | 量化可验收的公文写作技能。 | 102 万字语料炼成写作 skill |
+| [handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill) `Python` ![Stars](https://img.shields.io/github/stars/handsomestWei/patent-disclosure-skill?style=flat-square&label=%20) | 专利点挖掘与交底书编写技能。 | 从创意到交底书全流程 |
 
 </details>
 
 ## 🧠 大模型与推理引擎
 
 <details>
-<summary>共 1 个项目（点击展开）</summary>
+<summary>共 2 个项目（点击展开）</summary>
 
 <br>
 
 | 项目 | 核心干啥的 | 亮点 / 为什么收录 |
 | :--- | :--- | :--- |
 | [JustVugg/colibri](https://github.com/JustVugg/colibri) `C` ![Stars](https://img.shields.io/github/stars/JustVugg/colibri?style=flat-square&label=%20) | 分层调度显存、内存与磁盘，让普通设备跑超大 MoE。 | 纯 C 编写，零门槛跑百亿参数模型 |
+| [SoMarkAI/OXR](https://github.com/SoMarkAI/OXR) `Python` ![Stars](https://img.shields.io/github/stars/SoMarkAI/OXR?style=flat-square&label=%20) | 高精度高速度的开源文档解析模型。 | RSI 自改进后训练拉高精度 |
 
 </details>
 
@@ -123,7 +129,7 @@
 ## 🧰 桌面效率工具
 
 <details>
-<summary>共 4 个项目（点击展开）</summary>
+<summary>共 6 个项目（点击展开）</summary>
 
 <br>
 
@@ -133,5 +139,33 @@
 | [Bush2021/pitstop](https://github.com/Bush2021/pitstop) `Go` ![Stars](https://img.shields.io/github/stars/Bush2021/pitstop?style=flat-square&label=%20) | 在 Windows 上部署便携版 Chrome 的工具。 | 免安装，版本随身带 |
 | [LingCore/WinShun](https://github.com/LingCore/WinShun) `C++` ![Stars](https://img.shields.io/github/stars/LingCore/WinShun?style=flat-square&label=%20) | Windows 快速搜索与启动器。 | 拼音秒搜文件与全文 |
 | [nyakang/nyaterm](https://github.com/nyakang/nyaterm) `Rust` ![Stars](https://img.shields.io/github/stars/nyakang/nyaterm?style=flat-square&label=%20) | 现代化远程终端工作区。 | 连接管理与会话一站搞定 |
+| [wadereye/Relyto.Maliang](https://github.com/wadereye/Relyto.Maliang) `Rust` ![Stars](https://img.shields.io/github/stars/wadereye/Relyto.Maliang?style=flat-square&label=%20) | 本地优先的 AI 照片管理编辑工具。 | Rust+egui，原生 AI 修图 |
+| [FreeFallingSnow/SnowDesktop](https://github.com/FreeFallingSnow/SnowDesktop) `C++` ![Stars](https://img.shields.io/github/stars/FreeFallingSnow/SnowDesktop?style=flat-square&label=%20) | 组件化的 Windows 桌面整理软件。 | 组件收纳 + Dock，桌面焕新 |
+
+</details>
+
+## 🎬 AI 视频与内容创作
+
+<details>
+<summary>共 1 个项目（点击展开）</summary>
+
+<br>
+
+| 项目 | 核心干啥的 | 亮点 / 为什么收录 |
+| :--- | :--- | :--- |
+| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) `Python` ![Stars](https://img.shields.io/github/stars/harry0703/MoneyPrinterTurbo?style=flat-square&label=%20) | 输入主题一键生成高清短视频。 | 大模型自动写稿配音成片 |
+
+</details>
+
+## 📡 智能监控与自动化
+
+<details>
+<summary>共 1 个项目（点击展开）</summary>
+
+<br>
+
+| 项目 | 核心干啥的 | 亮点 / 为什么收录 |
+| :--- | :--- | :--- |
+| [Usagi-org/ai-goofish-monitor](https://github.com/Usagi-org/ai-goofish-monitor) `Python` ![Stars](https://img.shields.io/github/stars/Usagi-org/ai-goofish-monitor?style=flat-square&label=%20) | 闲鱼多任务实时监控与智能分析。 | 挂机找好货，AI 自动比价 |
 
 </details>

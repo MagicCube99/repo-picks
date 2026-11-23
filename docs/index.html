@@ -54,7 +54,10 @@
   }
   .chip b { color: var(--text); font-weight: 600; }
 
-  .filters { display: flex; gap: 10px; justify-content: center; margin: 36px 0 24px; flex-wrap: wrap; }
+  .filter-rows { display: flex; flex-direction: column; gap: 12px; margin: 36px 0 24px; }
+  .filter-row { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .flabel { font-family: var(--mono); font-size: 12px; letter-spacing: 2px; color: var(--muted); }
+  .filters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 0; max-width: 960px; }
   .filters button {
     background: #fff; color: var(--dim); border: 1px solid var(--line);
     padding: 8px 16px; border-radius: 999px; font-size: 14px; cursor: pointer;
@@ -65,6 +68,7 @@
     background: linear-gradient(90deg, #e0eaff, #cffafe);
     color: #1e3a8a; border-color: #a5b4fc; font-weight: 600;
   }
+  .filters[data-group="cat"] button { padding: 7px 13px; font-size: 13px; }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
   .card {
@@ -109,28 +113,57 @@
     <h1>repo-picks</h1>
     <p class="tagline">随手收藏的有趣开源项目 · 不求全面，只记眼前一亮</p>
     <div class="stats">
-      <span class="chip"><b>17</b> 个项目</span>
-      <span class="chip"><b>8</b> 个分类</span>
+      <span class="chip"><b>25</b> 个项目</span>
+      <span class="chip"><b>10</b> 个分类</span>
       <span class="chip">AI 动态归类</span>
       <span class="chip">MIT License</span>
     </div>
   </header>
 
-  <div class="filters">
-    <button class="active" data-f="all">全部</button>
-    <button data-f="JavaScript">JavaScript</button>
-    <button data-f="TypeScript">TypeScript</button>
-    <button data-f="Python">Python</button>
-    <button data-f="Go">Go</button>
-    <button data-f="Rust">Rust</button>
-    <button data-f="C">C</button>
-    <button data-f="C++">C++</button>
-    <button data-f="Shell">Shell</button>
-    <button data-f="Markdown">Markdown</button>
+  <div class="filter-rows">
+    <div class="filter-row">
+      <span class="flabel">语言</span>
+      <div class="filters" data-group="lang">
+        <button class="active" data-f="all">全部</button>
+        <button data-f="JavaScript">JavaScript</button>
+        <button data-f="TypeScript">TypeScript</button>
+        <button data-f="Python">Python</button>
+        <button data-f="Go">Go</button>
+        <button data-f="Rust">Rust</button>
+        <button data-f="C">C</button>
+        <button data-f="C++">C++</button>
+        <button data-f="Shell">Shell</button>
+        <button data-f="Markdown">Markdown</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="flabel">分类</span>
+      <div class="filters" data-group="cat">
+        <button class="active" data-f="all">全部</button>
+        <button data-f="agent">🤖 智能体与 Agent</button>
+        <button data-f="llm">🧠 大模型与推理</button>
+        <button data-f="cloud">🌐 云原生服务</button>
+        <button data-f="desktop-fw">💻 桌面框架</button>
+        <button data-f="frontend">🎨 前端模板</button>
+        <button data-f="network">🛰️ 网络代理</button>
+        <button data-f="corpus">📚 语料书库</button>
+        <button data-f="desktop">🧰 桌面效率</button>
+        <button data-f="video">🎬 AI 视频创作</button>
+        <button data-f="monitor">📡 智能监控</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="flabel">排序</span>
+      <div class="filters" data-group="sort">
+        <button class="active" data-f="default">默认</button>
+        <button data-f="desc">★ 从高到低</button>
+        <button data-f="asc">★ 从低到高</button>
+      </div>
+    </div>
   </div>
 
   <main class="grid">
-    <a class="card" data-lang="JavaScript" href="https://github.com/affaan-m/ECC">
+    <a class="card" data-lang="JavaScript" data-cat="agent" href="https://github.com/affaan-m/ECC">
       <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 309k</span></div>
       <h2 class="name"><span class="owner">affaan-m/</span><b>ECC</b></h2>
       <p class="desc">面向 Claude Code 等智能体的技能、记忆与安全调优框架。</p>
@@ -138,7 +171,7 @@
       <div class="card-foot"><span class="lang" style="--c:#b45309">JavaScript</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Python" href="https://github.com/dmoshehun-prog/learn-from-materials">
+    <a class="card" data-lang="Python" data-cat="agent" href="https://github.com/dmoshehun-prog/learn-from-materials">
       <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 1.5k</span></div>
       <h2 class="name"><span class="owner">dmoshehun-prog/</span><b>learn-from-materials</b></h2>
       <p class="desc">将书籍论文转为可追溯、可测验的互动学习网页。</p>
@@ -146,7 +179,7 @@
       <div class="card-foot"><span class="lang" style="--c:#1e6bb8">Python</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Markdown" href="https://github.com/zenstory-ai/novel-to-game">
+    <a class="card" data-lang="Markdown" data-cat="agent" href="https://github.com/zenstory-ai/novel-to-game">
       <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 1.2k</span></div>
       <h2 class="name"><span class="owner">zenstory-ai/</span><b>novel-to-game</b></h2>
       <p class="desc">驱动 Agent 通读拆书并将小说自动改编为可玩游戏。</p>
@@ -154,7 +187,7 @@
       <div class="card-foot"><span class="lang" style="--c:#4b5563">Markdown</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="JavaScript" href="https://github.com/cloudflare/security-audit-skill">
+    <a class="card" data-lang="JavaScript" data-cat="agent" href="https://github.com/cloudflare/security-audit-skill">
       <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 77k</span></div>
       <h2 class="name"><span class="owner">cloudflare/</span><b>security-audit-skill</b></h2>
       <p class="desc">面向编程智能体的多阶段安全审计技能。</p>
@@ -162,7 +195,31 @@
       <div class="card-foot"><span class="lang" style="--c:#b45309">JavaScript</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="C" href="https://github.com/JustVugg/colibri">
+    <a class="card" data-lang="TypeScript" data-cat="agent" href="https://github.com/JCodesMore/ai-website-cloner-template">
+      <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 40k</span></div>
+      <h2 class="name"><span class="owner">JCodesMore/</span><b>ai-website-cloner-template</b></h2>
+      <p class="desc">用 AI 智能体一键克隆任意网站。</p>
+      <p class="hi">一条命令复刻整站前端</p>
+      <div class="card-foot"><span class="lang" style="--c:#1d4ed8">TypeScript</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Python" data-cat="agent" href="https://github.com/larashero3-dotcom/lieflat-gongwen">
+      <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 2.7k</span></div>
+      <h2 class="name"><span class="owner">larashero3-dotcom/</span><b>lieflat-gongwen</b></h2>
+      <p class="desc">量化可验收的公文写作技能。</p>
+      <p class="hi">102 万字语料炼成写作 skill</p>
+      <div class="card-foot"><span class="lang" style="--c:#1e6bb8">Python</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Python" data-cat="agent" href="https://github.com/handsomestWei/patent-disclosure-skill">
+      <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 14k</span></div>
+      <h2 class="name"><span class="owner">handsomestWei/</span><b>patent-disclosure-skill</b></h2>
+      <p class="desc">专利点挖掘与交底书编写技能。</p>
+      <p class="hi">从创意到交底书全流程</p>
+      <div class="card-foot"><span class="lang" style="--c:#1e6bb8">Python</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="C" data-cat="llm" href="https://github.com/JustVugg/colibri">
       <div class="card-top"><span class="cat">🧠 大模型与推理引擎</span><span>★ 53k</span></div>
       <h2 class="name"><span class="owner">JustVugg/</span><b>colibri</b></h2>
       <p class="desc">分层调度显存、内存与磁盘，让普通设备跑超大 MoE。</p>
@@ -170,7 +227,15 @@
       <div class="card-foot"><span class="lang" style="--c:#475569">C</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="JavaScript" href="https://github.com/maillab/cloud-mail">
+    <a class="card" data-lang="Python" data-cat="llm" href="https://github.com/SoMarkAI/OXR">
+      <div class="card-top"><span class="cat">🧠 大模型与推理引擎</span><span>★ 3.6k</span></div>
+      <h2 class="name"><span class="owner">SoMarkAI/</span><b>OXR</b></h2>
+      <p class="desc">高精度高速度的开源文档解析模型。</p>
+      <p class="hi">RSI 自改进后训练拉高精度</p>
+      <div class="card-foot"><span class="lang" style="--c:#1e6bb8">Python</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="JavaScript" data-cat="cloud" href="https://github.com/maillab/cloud-mail">
       <div class="card-top"><span class="cat">🌐 云原生与实用服务</span><span>★ 17k</span></div>
       <h2 class="name"><span class="owner">maillab/</span><b>cloud-mail</b></h2>
       <p class="desc">基于 Cloudflare 的一站式自托管邮箱收发平台。</p>
@@ -178,7 +243,7 @@
       <div class="card-foot"><span class="lang" style="--c:#b45309">JavaScript</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Go" href="https://github.com/dromara/MyObj">
+    <a class="card" data-lang="Go" data-cat="cloud" href="https://github.com/dromara/MyObj">
       <div class="card-top"><span class="cat">🌐 云原生与实用服务</span><span>★ 37</span></div>
       <h2 class="name"><span class="owner">dromara/</span><b>MyObj</b></h2>
       <p class="desc">Go 写的家庭私有云盘系统。</p>
@@ -186,7 +251,7 @@
       <div class="card-foot"><span class="lang" style="--c:#0e7490">Go</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Go" href="https://github.com/egoist/mygo">
+    <a class="card" data-lang="Go" data-cat="desktop-fw" href="https://github.com/egoist/mygo">
       <div class="card-top"><span class="cat">💻 桌面端与跨平台框架</span><span>★ 6.7k</span></div>
       <h2 class="name"><span class="owner">egoist/</span><b>mygo</b></h2>
       <p class="desc">用 Go 开发轻量原生 UI 或 Webview 桌面应用。</p>
@@ -194,7 +259,7 @@
       <div class="card-foot"><span class="lang" style="--c:#0e7490">Go</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="TypeScript" href="https://github.com/satnaing/shadcn-admin">
+    <a class="card" data-lang="TypeScript" data-cat="frontend" href="https://github.com/satnaing/shadcn-admin">
       <div class="card-top"><span class="cat">🎨 前端与界面模板</span><span>★ 17k</span></div>
       <h2 class="name"><span class="owner">satnaing/</span><b>shadcn-admin</b></h2>
       <p class="desc">基于 shadcn/ui 与 Vite 的后台管理面板模板。</p>
@@ -202,7 +267,7 @@
       <div class="card-foot"><span class="lang" style="--c:#1d4ed8">TypeScript</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Go" href="https://github.com/MHSanaei/3x-ui">
+    <a class="card" data-lang="Go" data-cat="network" href="https://github.com/MHSanaei/3x-ui">
       <div class="card-top"><span class="cat">🛰️ 网络与代理工具</span><span>★ 50k</span></div>
       <h2 class="name"><span class="owner">MHSanaei/</span><b>3x-ui</b></h2>
       <p class="desc">多协议多用户的 Xray 代理管理面板。</p>
@@ -210,7 +275,7 @@
       <div class="card-foot"><span class="lang" style="--c:#0e7490">Go</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Shell" href="https://github.com/yonggekkk/argosbx">
+    <a class="card" data-lang="Shell" data-cat="network" href="https://github.com/yonggekkk/argosbx">
       <div class="card-top"><span class="cat">🛰️ 网络与代理工具</span><span>★ 6.1k</span></div>
       <h2 class="name"><span class="owner">yonggekkk/</span><b>argosbx</b></h2>
       <p class="desc">一键部署 Sing-box/Xray/Argo 的代理脚本。</p>
@@ -218,7 +283,7 @@
       <div class="card-foot"><span class="lang" style="--c:#4d7c0f">Shell</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="JavaScript" href="https://github.com/chinese-poetry/chinese-poetry">
+    <a class="card" data-lang="JavaScript" data-cat="corpus" href="https://github.com/chinese-poetry/chinese-poetry">
       <div class="card-top"><span class="cat">📚 语料与电子书宝库</span><span>★ 54k</span></div>
       <h2 class="name"><span class="owner">chinese-poetry/</span><b>chinese-poetry</b></h2>
       <p class="desc">最全中华古诗词数据库与检索工具。</p>
@@ -226,7 +291,7 @@
       <div class="card-foot"><span class="lang" style="--c:#b45309">JavaScript</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Python" href="https://github.com/jbiaojerry/ebook-treasure-chest">
+    <a class="card" data-lang="Python" data-cat="corpus" href="https://github.com/jbiaojerry/ebook-treasure-chest">
       <div class="card-top"><span class="cat">📚 语料与电子书宝库</span><span>★ 24k</span></div>
       <h2 class="name"><span class="owner">jbiaojerry/</span><b>ebook-treasure-chest</b></h2>
       <p class="desc">汇集多平台电子书下载链接的资源库。</p>
@@ -234,7 +299,7 @@
       <div class="card-foot"><span class="lang" style="--c:#1e6bb8">Python</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Rust" href="https://github.com/lbjlaq/Antigravity-Manager">
+    <a class="card" data-lang="Rust" data-cat="desktop" href="https://github.com/lbjlaq/Antigravity-Manager">
       <div class="card-top"><span class="cat">🧰 桌面效率工具</span><span>★ 34k</span></div>
       <h2 class="name"><span class="owner">lbjlaq/</span><b>Antigravity-Manager</b></h2>
       <p class="desc">Antigravity 多账号管理一键切换工具。</p>
@@ -242,7 +307,7 @@
       <div class="card-foot"><span class="lang" style="--c:#b91c1c">Rust</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Go" href="https://github.com/Bush2021/pitstop">
+    <a class="card" data-lang="Go" data-cat="desktop" href="https://github.com/Bush2021/pitstop">
       <div class="card-top"><span class="cat">🧰 桌面效率工具</span><span>★ 33</span></div>
       <h2 class="name"><span class="owner">Bush2021/</span><b>pitstop</b></h2>
       <p class="desc">在 Windows 上部署便携版 Chrome 的工具。</p>
@@ -250,7 +315,7 @@
       <div class="card-foot"><span class="lang" style="--c:#0e7490">Go</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="C++" href="https://github.com/LingCore/WinShun">
+    <a class="card" data-lang="C++" data-cat="desktop" href="https://github.com/LingCore/WinShun">
       <div class="card-top"><span class="cat">🧰 桌面效率工具</span><span>★ 1.2k</span></div>
       <h2 class="name"><span class="owner">LingCore/</span><b>WinShun</b></h2>
       <p class="desc">Windows 快速搜索与启动器。</p>
@@ -258,12 +323,44 @@
       <div class="card-foot"><span class="lang" style="--c:#9a3412">C++</span><span class="go">查看 →</span></div>
     </a>
 
-    <a class="card" data-lang="Rust" href="https://github.com/nyakang/nyaterm">
+    <a class="card" data-lang="Rust" data-cat="desktop" href="https://github.com/nyakang/nyaterm">
       <div class="card-top"><span class="cat">🧰 桌面效率工具</span><span>★ 2.6k</span></div>
       <h2 class="name"><span class="owner">nyakang/</span><b>nyaterm</b></h2>
       <p class="desc">现代化远程终端工作区。</p>
       <p class="hi">连接管理与会话一站搞定</p>
       <div class="card-foot"><span class="lang" style="--c:#b91c1c">Rust</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Rust" data-cat="desktop" href="https://github.com/wadereye/Relyto.Maliang">
+      <div class="card-top"><span class="cat">🧰 桌面效率工具</span><span>★ 51</span></div>
+      <h2 class="name"><span class="owner">wadereye/</span><b>Relyto.Maliang</b></h2>
+      <p class="desc">本地优先的 AI 照片管理编辑工具。</p>
+      <p class="hi">Rust+egui，原生 AI 修图</p>
+      <div class="card-foot"><span class="lang" style="--c:#b91c1c">Rust</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="C++" data-cat="desktop" href="https://github.com/FreeFallingSnow/SnowDesktop">
+      <div class="card-top"><span class="cat">🧰 桌面效率工具</span><span>★ 238</span></div>
+      <h2 class="name"><span class="owner">FreeFallingSnow/</span><b>SnowDesktop</b></h2>
+      <p class="desc">组件化的 Windows 桌面整理软件。</p>
+      <p class="hi">组件收纳 + Dock，桌面焕新</p>
+      <div class="card-foot"><span class="lang" style="--c:#9a3412">C++</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Python" data-cat="video" href="https://github.com/harry0703/MoneyPrinterTurbo">
+      <div class="card-top"><span class="cat">🎬 AI 视频与内容创作</span><span>★ 145k</span></div>
+      <h2 class="name"><span class="owner">harry0703/</span><b>MoneyPrinterTurbo</b></h2>
+      <p class="desc">输入主题一键生成高清短视频。</p>
+      <p class="hi">大模型自动写稿配音成片</p>
+      <div class="card-foot"><span class="lang" style="--c:#1e6bb8">Python</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Python" data-cat="monitor" href="https://github.com/Usagi-org/ai-goofish-monitor">
+      <div class="card-top"><span class="cat">📡 智能监控与自动化</span><span>★ 21k</span></div>
+      <h2 class="name"><span class="owner">Usagi-org/</span><b>ai-goofish-monitor</b></h2>
+      <p class="desc">闲鱼多任务实时监控与智能分析。</p>
+      <p class="hi">挂机找好货，AI 自动比价</p>
+      <div class="card-foot"><span class="lang" style="--c:#1e6bb8">Python</span><span class="go">查看 →</span></div>
     </a>
   </main>
 
@@ -273,16 +370,41 @@
 </div>
 
 <script>
-  const btns = document.querySelectorAll('.filters button');
   const cards = [...document.querySelectorAll('.card')];
-  btns.forEach(b => b.addEventListener('click', () => {
-    btns.forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    const f = b.dataset.f;
+  const groups = [...document.querySelectorAll('.filters')];
+  const active = { lang: 'all', cat: 'all', sort: 'default' };
+
+  cards.forEach(c => {
+    const t = c.querySelector('.card-top span:last-child').textContent.trim();
+    const n = parseFloat(t.replace(/[^0-9.]/g, '')) || 0;
+    c.dataset.stars = String(/k/i.test(t) ? n * 1000 : n);
+  });
+
+  const apply = () => {
     cards.forEach(c => {
-      c.style.display = (f === 'all' || c.dataset.lang === f) ? '' : 'none';
+      const show = (active.lang === 'all' || c.dataset.lang === active.lang)
+                && (active.cat === 'all' || c.dataset.cat === active.cat);
+      c.style.display = show ? '' : 'none';
     });
-  }));
+    if (active.sort === 'default') {
+      cards.forEach(c => { c.style.order = ''; });
+    } else {
+      const dir = active.sort === 'asc' ? 1 : -1;
+      [...cards]
+        .sort((a, b) => dir * (Number(a.dataset.stars) - Number(b.dataset.stars)))
+        .forEach((c, i) => { c.style.order = String(i); });
+    }
+  };
+
+  groups.forEach(g => {
+    const key = g.dataset.group;
+    g.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+      g.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      active[key] = b.dataset.f;
+      apply();
+    }));
+  });
 </script>
 </body>
 </html>
