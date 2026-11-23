@@ -13,7 +13,7 @@
     --text: #1b1f2a;
     --dim: #5f6676;
     --muted: #8b92a3;
-    --a1: #7c3aed;
+    --a1: #2563eb;
     --a2: #0891b2;
     --mono: "Cascadia Code", Consolas, "SF Mono", Menlo, monospace;
   }
@@ -21,7 +21,7 @@
   body {
     margin: 0;
     background:
-      radial-gradient(1100px 560px at 10% -10%, rgba(124, 58, 237, 0.07), transparent 60%),
+      radial-gradient(1100px 560px at 10% -10%, rgba(37, 99, 235, 0.07), transparent 60%),
       radial-gradient(900px 480px at 92% -6%, rgba(8, 145, 178, 0.06), transparent 58%),
       var(--bg);
     color: var(--text);
@@ -33,15 +33,17 @@
   header { text-align: center; margin-bottom: 40px; }
   .logo {
     width: 64px; height: 64px; margin: 0 auto 18px;
-    display: grid; place-items: center; font-size: 30px;
+    display: grid; place-items: center;
     border-radius: 18px;
-    background: linear-gradient(135deg, #ede9fe, #cffafe);
-    border: 1px solid #ddd6fe;
-    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.14);
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 1px solid #1e293b;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.20);
+    font-family: var(--mono); font-size: 24px; font-weight: 700;
+    color: #22d3ee; letter-spacing: 1px;
   }
   h1 {
     font-size: 56px; letter-spacing: -1.5px; margin: 0 0 10px; font-weight: 800;
-    background: linear-gradient(90deg, #6d28d9 0%, #7c3aed 40%, #0891b2 100%);
+    background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 45%, #0891b2 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
   .tagline { color: var(--dim); font-size: 16px; margin: 0 0 22px; }
@@ -60,8 +62,8 @@
   }
   .filters button:hover { color: var(--text); border-color: #cfd3e0; }
   .filters button.active {
-    background: linear-gradient(90deg, #f3e8ff, #e0f7fb);
-    color: #5b21b6; border-color: #c4b5fd; font-weight: 600;
+    background: linear-gradient(90deg, #e0eaff, #cffafe);
+    color: #1e3a8a; border-color: #a5b4fc; font-weight: 600;
   }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
@@ -74,14 +76,14 @@
   }
   .card:hover {
     transform: translateY(-4px);
-    border-color: #c4b5fd;
-    box-shadow: 0 16px 40px rgba(76, 29, 149, 0.12);
+    border-color: #a5b4fc;
+    box-shadow: 0 16px 40px rgba(30, 64, 175, 0.12);
   }
   .card-top { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; color: var(--muted); }
-  .cat { color: #6d5bd0; }
+  .cat { color: #2f5fd0; }
   .name { font-family: var(--mono); font-size: 16.5px; margin: 12px 0 10px; overflow-wrap: break-word; }
   .name .owner { color: var(--muted); }
-  .name b { color: #5b21b6; font-weight: 600; }
+  .name b { color: #1d4ed8; font-weight: 600; }
   .desc { font-size: 14px; color: #3f4653; line-height: 1.65; margin: 0 0 10px; }
   .hi { font-size: 13px; color: var(--dim); margin: 0 0 18px; }
   .hi::before { content: "◆"; color: var(--a2); margin-right: 8px; font-size: 9px; vertical-align: 2px; }
@@ -95,13 +97,15 @@
   .go { font-size: 13px; color: var(--muted); }
 
   footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 60px; line-height: 1.8; }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px dotted #cfd6e4; }
+  footer a:hover { color: var(--a1); }
   footer .dot { margin: 0 8px; color: #d4d8e2; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="logo">📌</div>
+    <div class="logo">&gt;_</div>
     <h1>repo-picks</h1>
     <p class="tagline">随手收藏的有趣开源项目 · 不求全面，只记眼前一亮</p>
     <div class="stats">
