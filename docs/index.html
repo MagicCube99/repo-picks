@@ -207,8 +207,8 @@
     <h1>repo-picks</h1>
     <p class="tagline">随手收藏的有趣开源项目 · 不求全面，只记眼前一亮</p>
     <div class="stats">
-      <span class="chip" id="chip-projects"><b>28</b> 个项目</span>
-      <span class="chip" id="chip-cats"><b>11</b> 个分类</span>
+      <span class="chip" id="chip-projects"><b>29</b> 个项目</span>
+      <span class="chip" id="chip-cats"><b>12</b> 个分类</span>
       <span class="chip" id="chip-ai">AI 动态归类</span>
       <span class="chip">MIT License</span>
     </div>
@@ -230,6 +230,7 @@
         <option value="frontend">🎨 前端模板</option>
         <option value="video">🎬 AI 视频创作</option>
         <option value="monitor">📡 智能监控</option>
+        <option value="wasm">⚡ WebAssembly 高性能库</option>
       </select>
     </div>
     <div class="field">
@@ -255,7 +256,7 @@
         <option value="asc">↑ 从低到高</option>
       </select>
     </div>
-    <span class="count" id="count">28 / 28</span>
+    <span class="count" id="count">29 / 29</span>
   </div>
 
   <main class="grid">
@@ -482,6 +483,14 @@
       <p class="hi">IDM 开源平替，站点全通吃</p>
       <div class="card-foot"><span class="lang" style="--c:#b91c1c">Rust</span><span class="go">查看 →</span></div>
     </a>
+
+    <a class="card" data-lang="TypeScript" data-cat="wasm" href="https://github.com/Daninet/hash-wasm">
+      <div class="card-top"><span class="cat">⚡ WebAssembly 与高性能库</span><span>★ 1.2k</span></div>
+      <h2 class="name"><span class="owner">Daninet/</span><b>hash-wasm</b></h2>
+      <p class="desc">手写 WASM 实现的高速哈希函数库。</p>
+      <p class="hi">手调 WASM，浏览器极速哈希</p>
+      <div class="card-foot"><span class="lang" style="--c:#1d4ed8">TypeScript</span><span class="go">查看 →</span></div>
+    </a>
   </main>
 
   <footer>
@@ -515,13 +524,13 @@
       agent: '🤖 智能体与 Agent 技能', llm: '🧠 大模型与推理引擎', cloud: '🌐 云原生与实用服务',
       'desktop-fw': '💻 桌面端与跨平台框架', frontend: '🎨 前端与界面模板', network: '🛰️ 网络与代理工具',
       corpus: '📚 语料与电子书宝库', desktop: '🧰 桌面效率工具', video: '🎬 AI 视频与内容创作',
-      monitor: '📡 智能监控与自动化', download: '📥 下载与传输'
+      monitor: '📡 智能监控与自动化', download: '📥 下载与传输', wasm: '⚡ WebAssembly 与高性能库'
     },
     en: {
       agent: '🤖 Agents & Skills', llm: '🧠 LLMs & Inference', cloud: '🌐 Cloud & Services',
       'desktop-fw': '💻 Desktop & Cross-platform', frontend: '🎨 Frontend & UI Kits', network: '🛰️ Network & Proxies',
       corpus: '📚 Corpora & Books', desktop: '🧰 Desktop Utilities', video: '🎬 AI Video & Content',
-      monitor: '📡 Monitoring & Automation', download: '📥 Downloads & Transfer'
+      monitor: '📡 Monitoring & Automation', download: '📥 Downloads & Transfer', wasm: '⚡ WebAssembly Libraries'
     }
   };
   const CAT_OPT = {
@@ -529,13 +538,13 @@
       agent: '🤖 智能体与 Agent', llm: '🧠 大模型与推理', cloud: '🌐 云原生服务',
       'desktop-fw': '💻 桌面框架', frontend: '🎨 前端模板', network: '🛰️ 网络代理',
       corpus: '📚 语料书库', desktop: '🧰 桌面效率', video: '🎬 AI 视频创作',
-      monitor: '📡 智能监控', download: '📥 下载与传输'
+      monitor: '📡 智能监控', download: '📥 下载与传输', wasm: '⚡ WebAssembly 高性能库'
     },
     en: {
       agent: '🤖 Agents', llm: '🧠 LLMs', cloud: '🌐 Cloud',
       'desktop-fw': '💻 Desktop FW', frontend: '🎨 Frontend', network: '🛰️ Network',
       corpus: '📚 Books', desktop: '🧰 Desktop', video: '🎬 AI Video',
-      monitor: '📡 Monitor', download: '📥 Download'
+      monitor: '📡 Monitor', download: '📥 Download', wasm: '⚡ WASM'
     }
   };
 
@@ -567,7 +576,8 @@
     'harry0703/MoneyPrinterTurbo': ['One-click HD short video from a topic.', 'AI writes, voices and edits it all'],
     'Usagi-org/ai-goofish-monitor': ['Real-time multi-task monitoring and analysis for Xianyu.', 'Idle-farm deals, AI compares prices'],
     'zerx-lab/FluxDown': ['Rust-powered multi-protocol download manager.', 'HTTP/BT/streaming in one'],
-    'anefzaoui/misterdownloadmanager': ['Pure-Rust cross-platform download manager.', 'Open-source IDM alternative, site-compatible']
+    'anefzaoui/misterdownloadmanager': ['Pure-Rust cross-platform download manager.', 'Open-source IDM alternative, site-compatible'],
+    'Daninet/hash-wasm': ['Hand-tuned WebAssembly hashing library with blazing speed.', 'WASM-fast MD5/SHA/Argon2 in the browser']
   };
 
   const cards = [...document.querySelectorAll('.card')];

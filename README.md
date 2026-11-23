@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://magiccube99.github.io/repo-picks/"><b>🌐 在线浏览</b></a>
-  &nbsp;·&nbsp; 当前收录 <b>28</b> 个项目 / <b>11</b> 个分类 / MIT License
+  &nbsp;·&nbsp; 当前收录 <b>29</b> 个项目 / <b>12</b> 个分类 / MIT License
 </p>
 
 ---
@@ -23,6 +23,7 @@
 - [🎬 AI 视频与内容创作](#-ai-视频与内容创作)
 - [📡 智能监控与自动化](#-智能监控与自动化)
 - [📥 下载与传输](#-下载与传输)
+- [⚡ WebAssembly 与高性能库](#-webassembly-与高性能库)
 
 ---
 
@@ -183,5 +184,18 @@
 | :--- | :--- | :--- |
 | [zerx-lab/FluxDown](https://github.com/zerx-lab/FluxDown) `Rust` ![Stars](https://img.shields.io/github/stars/zerx-lab/FluxDown?style=flat-square&label=%20) | Rust 驱动的多协议下载管理器。 | HTTP/BT/流媒体通吃 |
 | [anefzaoui/misterdownloadmanager](https://github.com/anefzaoui/misterdownloadmanager) `Rust` ![Stars](https://img.shields.io/github/stars/anefzaoui/misterdownloadmanager?style=flat-square&label=%20) | 纯 Rust 写的跨平台下载管理器。 | IDM 开源平替，站点全通吃 |
+
+</details>
+
+## ⚡ WebAssembly 与高性能库
+
+<details>
+<summary>共 1 个项目（点击展开）</summary>
+
+<br>
+
+| 项目 | 核心干啥的 | 亮点 / 为什么收录 |
+| :--- | :--- | :--- |
+| [Daninet/hash-wasm](https://github.com/Daninet/hash-wasm) `TypeScript` ![Stars](https://img.shields.io/github/stars/Daninet/hash-wasm?style=flat-square&label=%20) | 手写 WASM 实现的高速哈希函数库。 | 手调 WASM，浏览器极速哈希 |
 
 </details>
