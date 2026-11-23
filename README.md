@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://magiccube99.github.io/repo-picks/"><b>🌐 在线浏览</b></a>
-  &nbsp;·&nbsp; 当前收录 <b>25</b> 个项目 / <b>10</b> 个分类 / MIT License
+  &nbsp;·&nbsp; 当前收录 <b>28</b> 个项目 / <b>11</b> 个分类 / MIT License
 </p>
 
 ---
@@ -22,6 +22,7 @@
 - [🧰 桌面效率工具](#-桌面效率工具)
 - [🎬 AI 视频与内容创作](#-ai-视频与内容创作)
 - [📡 智能监控与自动化](#-智能监控与自动化)
+- [📥 下载与传输](#-下载与传输)
 
 ---
 
@@ -129,7 +130,7 @@
 ## 🧰 桌面效率工具
 
 <details>
-<summary>共 6 个项目（点击展开）</summary>
+<summary>共 7 个项目（点击展开）</summary>
 
 <br>
 
@@ -141,6 +142,7 @@
 | [nyakang/nyaterm](https://github.com/nyakang/nyaterm) `Rust` ![Stars](https://img.shields.io/github/stars/nyakang/nyaterm?style=flat-square&label=%20) | 现代化远程终端工作区。 | 连接管理与会话一站搞定 |
 | [wadereye/Relyto.Maliang](https://github.com/wadereye/Relyto.Maliang) `Rust` ![Stars](https://img.shields.io/github/stars/wadereye/Relyto.Maliang?style=flat-square&label=%20) | 本地优先的 AI 照片管理编辑工具。 | Rust+egui，原生 AI 修图 |
 | [FreeFallingSnow/SnowDesktop](https://github.com/FreeFallingSnow/SnowDesktop) `C++` ![Stars](https://img.shields.io/github/stars/FreeFallingSnow/SnowDesktop?style=flat-square&label=%20) | 组件化的 Windows 桌面整理软件。 | 组件收纳 + Dock，桌面焕新 |
+| [tizuio/TizuMark-Markdown-Editor](https://github.com/tizuio/TizuMark-Markdown-Editor) `JavaScript` ![Stars](https://img.shields.io/github/stars/tizuio/TizuMark-Markdown-Editor?style=flat-square&label=%20) | 9MB 的轻量 Markdown 编辑器。 | 实时预览，公式图表全都有 |
 
 </details>
 
@@ -167,5 +169,19 @@
 | 项目 | 核心干啥的 | 亮点 / 为什么收录 |
 | :--- | :--- | :--- |
 | [Usagi-org/ai-goofish-monitor](https://github.com/Usagi-org/ai-goofish-monitor) `Python` ![Stars](https://img.shields.io/github/stars/Usagi-org/ai-goofish-monitor?style=flat-square&label=%20) | 闲鱼多任务实时监控与智能分析。 | 挂机找好货，AI 自动比价 |
+
+</details>
+
+## 📥 下载与传输
+
+<details>
+<summary>共 2 个项目（点击展开）</summary>
+
+<br>
+
+| 项目 | 核心干啥的 | 亮点 / 为什么收录 |
+| :--- | :--- | :--- |
+| [zerx-lab/FluxDown](https://github.com/zerx-lab/FluxDown) `Rust` ![Stars](https://img.shields.io/github/stars/zerx-lab/FluxDown?style=flat-square&label=%20) | Rust 驱动的多协议下载管理器。 | HTTP/BT/流媒体通吃 |
+| [anefzaoui/misterdownloadmanager](https://github.com/anefzaoui/misterdownloadmanager) `Rust` ![Stars](https://img.shields.io/github/stars/anefzaoui/misterdownloadmanager?style=flat-square&label=%20) | 纯 Rust 写的跨平台下载管理器。 | IDM 开源平替，站点全通吃 |
 
 </details>

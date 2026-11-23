@@ -49,9 +49,9 @@
 
   <g font-family="Consolas, Menlo, monospace" font-size="14" fill="#334155">
     <rect x="171" y="188" width="104" height="30" rx="6" fill="#ffffff" stroke="#dbe3f0"/>
-    <text x="185" y="208">picks: 25</text>
+    <text x="185" y="208">picks: 28</text>
     <rect x="285" y="188" width="140" height="30" rx="6" fill="#ffffff" stroke="#dbe3f0"/>
-    <text x="299" y="208">categories: 10</text>
+    <text x="299" y="208">categories: 11</text>
     <rect x="435" y="188" width="132" height="30" rx="6" fill="#ffffff" stroke="#dbe3f0"/>
     <text x="449" y="208">license: MIT</text>
   </g>
