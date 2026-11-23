@@ -54,21 +54,24 @@
   }
   .chip b { color: var(--text); font-weight: 600; }
 
-  .filter-rows { display: flex; flex-direction: column; gap: 12px; margin: 36px 0 24px; }
-  .filter-row { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
-  .flabel { font-family: var(--mono); font-size: 12px; letter-spacing: 2px; color: var(--muted); }
-  .filters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 0; max-width: 960px; }
-  .filters button {
-    background: #fff; color: var(--dim); border: 1px solid var(--line);
-    padding: 8px 16px; border-radius: 999px; font-size: 14px; cursor: pointer;
-    transition: all 0.18s ease; font-family: inherit;
+  .toolbar {
+    display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+    width: fit-content; max-width: 100%; margin: 32px auto 26px; padding: 10px 14px;
+    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   }
-  .filters button:hover { color: var(--text); border-color: #cfd3e0; }
-  .filters button.active {
-    background: linear-gradient(90deg, #e0eaff, #cffafe);
-    color: #1e3a8a; border-color: #a5b4fc; font-weight: 600;
+  .field { display: flex; align-items: center; gap: 8px; }
+  .flabel { font-family: var(--mono); font-size: 12px; letter-spacing: 1.5px; color: var(--muted); }
+  .toolbar select {
+    appearance: none; -webkit-appearance: none; font: inherit; font-size: 13.5px; color: var(--text);
+    background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%235f6676' stroke-width='1.6' stroke-linecap='round'/></svg>") no-repeat right 12px center;
+    border: 1px solid #dfe3ee; border-radius: 999px; padding: 7px 32px 7px 14px; cursor: pointer;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
   }
-  .filters[data-group="cat"] button { padding: 7px 13px; font-size: 13px; }
+  .toolbar select:hover { border-color: #c3c9da; }
+  .toolbar select:focus { outline: none; border-color: #a5b4fc; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12); }
+  .count { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding-left: 4px; }
+  @media (max-width: 640px) { .toolbar { width: 100%; justify-content: flex-start; } }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
   .card {
@@ -120,46 +123,47 @@
     </div>
   </header>
 
-  <div class="filter-rows">
-    <div class="filter-row">
-      <span class="flabel">语言</span>
-      <div class="filters" data-group="lang">
-        <button class="active" data-f="all">全部</button>
-        <button data-f="JavaScript">JavaScript</button>
-        <button data-f="TypeScript">TypeScript</button>
-        <button data-f="Python">Python</button>
-        <button data-f="Go">Go</button>
-        <button data-f="Rust">Rust</button>
-        <button data-f="C">C</button>
-        <button data-f="C++">C++</button>
-        <button data-f="Shell">Shell</button>
-        <button data-f="Markdown">Markdown</button>
-      </div>
-    </div>
-    <div class="filter-row">
+  <div class="toolbar">
+    <div class="field">
       <span class="flabel">分类</span>
-      <div class="filters" data-group="cat">
-        <button class="active" data-f="all">全部</button>
-        <button data-f="agent">🤖 智能体与 Agent</button>
-        <button data-f="llm">🧠 大模型与推理</button>
-        <button data-f="cloud">🌐 云原生服务</button>
-        <button data-f="desktop-fw">💻 桌面框架</button>
-        <button data-f="frontend">🎨 前端模板</button>
-        <button data-f="network">🛰️ 网络代理</button>
-        <button data-f="corpus">📚 语料书库</button>
-        <button data-f="desktop">🧰 桌面效率</button>
-        <button data-f="video">🎬 AI 视频创作</button>
-        <button data-f="monitor">📡 智能监控</button>
-      </div>
+      <select id="f-cat">
+        <option value="all">全部分类</option>
+        <option value="agent">🤖 智能体与 Agent</option>
+        <option value="llm">🧠 大模型与推理</option>
+        <option value="cloud">🌐 云原生服务</option>
+        <option value="desktop-fw">💻 桌面框架</option>
+        <option value="frontend">🎨 前端模板</option>
+        <option value="network">🛰️ 网络代理</option>
+        <option value="corpus">📚 语料书库</option>
+        <option value="desktop">🧰 桌面效率</option>
+        <option value="video">🎬 AI 视频创作</option>
+        <option value="monitor">📡 智能监控</option>
+      </select>
     </div>
-    <div class="filter-row">
+    <div class="field">
+      <span class="flabel">语言</span>
+      <select id="f-lang">
+        <option value="all">全部语言</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="Python">Python</option>
+        <option value="Go">Go</option>
+        <option value="Rust">Rust</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="Shell">Shell</option>
+        <option value="Markdown">Markdown</option>
+      </select>
+    </div>
+    <div class="field">
       <span class="flabel">排序</span>
-      <div class="filters" data-group="sort">
-        <button class="active" data-f="default">默认</button>
-        <button data-f="desc">★ 从高到低</button>
-        <button data-f="asc">★ 从低到高</button>
-      </div>
+      <select id="f-sort">
+        <option value="default">默认顺序</option>
+        <option value="desc">★ 从高到低</option>
+        <option value="asc">★ 从低到高</option>
+      </select>
     </div>
+    <span class="count" id="count">25 / 25</span>
   </div>
 
   <main class="grid">
@@ -371,8 +375,10 @@
 
 <script>
   const cards = [...document.querySelectorAll('.card')];
-  const groups = [...document.querySelectorAll('.filters')];
-  const active = { lang: 'all', cat: 'all', sort: 'default' };
+  const catSel = document.getElementById('f-cat');
+  const langSel = document.getElementById('f-lang');
+  const sortSel = document.getElementById('f-sort');
+  const countEl = document.getElementById('count');
 
   cards.forEach(c => {
     const t = c.querySelector('.card-top span:last-child').textContent.trim();
@@ -381,30 +387,26 @@
   });
 
   const apply = () => {
+    const lang = langSel.value, cat = catSel.value, sort = sortSel.value;
+    let shown = 0;
     cards.forEach(c => {
-      const show = (active.lang === 'all' || c.dataset.lang === active.lang)
-                && (active.cat === 'all' || c.dataset.cat === active.cat);
+      const show = (lang === 'all' || c.dataset.lang === lang)
+                && (cat === 'all' || c.dataset.cat === cat);
       c.style.display = show ? '' : 'none';
+      if (show) shown++;
     });
-    if (active.sort === 'default') {
+    if (sort === 'default') {
       cards.forEach(c => { c.style.order = ''; });
     } else {
-      const dir = active.sort === 'asc' ? 1 : -1;
+      const dir = sort === 'asc' ? 1 : -1;
       [...cards]
         .sort((a, b) => dir * (Number(a.dataset.stars) - Number(b.dataset.stars)))
         .forEach((c, i) => { c.style.order = String(i); });
     }
+    countEl.textContent = shown + ' / ' + cards.length;
   };
 
-  groups.forEach(g => {
-    const key = g.dataset.group;
-    g.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
-      g.querySelectorAll('button').forEach(x => x.classList.remove('active'));
-      b.classList.add('active');
-      active[key] = b.dataset.f;
-      apply();
-    }));
-  });
+  [catSel, langSel, sortSel].forEach(s => s.addEventListener('change', apply));
 </script>
 </body>
 </html>
