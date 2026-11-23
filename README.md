@@ -1,6 +1,8 @@
 # 📌 repo-picks
 
 > 随手收藏的有趣开源项目。不求全面，只记眼前一亮。
+>
+> 🌐 在线浏览：[magiccube99.github.io/repo-picks](https://magiccube99.github.io/repo-picks/)
 
 ---
 

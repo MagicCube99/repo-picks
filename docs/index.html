@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>repo-picks · 随手收藏的有趣开源项目</title>
+<style>
+  :root {
+    --bg: #f7f8fc;
+    --card: #ffffff;
+    --line: #e7e9f1;
+    --text: #1b1f2a;
+    --dim: #5f6676;
+    --muted: #8b92a3;
+    --a1: #7c3aed;
+    --a2: #0891b2;
+    --mono: "Cascadia Code", Consolas, "SF Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1100px 560px at 10% -10%, rgba(124, 58, 237, 0.07), transparent 60%),
+      radial-gradient(900px 480px at 92% -6%, rgba(8, 145, 178, 0.06), transparent 58%),
+      var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 56px 24px 72px; }
+
+  header { text-align: center; margin-bottom: 40px; }
+  .logo {
+    width: 64px; height: 64px; margin: 0 auto 18px;
+    display: grid; place-items: center; font-size: 30px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ede9fe, #cffafe);
+    border: 1px solid #ddd6fe;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.14);
+  }
+  h1 {
+    font-size: 56px; letter-spacing: -1.5px; margin: 0 0 10px; font-weight: 800;
+    background: linear-gradient(90deg, #6d28d9 0%, #7c3aed 40%, #0891b2 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .tagline { color: var(--dim); font-size: 16px; margin: 0 0 22px; }
+  .stats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .chip {
+    padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px;
+    font-size: 13px; color: var(--dim); background: rgba(255, 255, 255, 0.7);
+  }
+  .chip b { color: var(--text); font-weight: 600; }
+
+  .filters { display: flex; gap: 10px; justify-content: center; margin: 36px 0 24px; flex-wrap: wrap; }
+  .filters button {
+    background: #fff; color: var(--dim); border: 1px solid var(--line);
+    padding: 8px 16px; border-radius: 999px; font-size: 14px; cursor: pointer;
+    transition: all 0.18s ease; font-family: inherit;
+  }
+  .filters button:hover { color: var(--text); border-color: #cfd3e0; }
+  .filters button.active {
+    background: linear-gradient(90deg, #f3e8ff, #e0f7fb);
+    color: #5b21b6; border-color: #c4b5fd; font-weight: 600;
+  }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+  .card {
+    display: block; padding: 22px; border-radius: 18px; text-decoration: none; color: inherit;
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: #c4b5fd;
+    box-shadow: 0 16px 40px rgba(76, 29, 149, 0.12);
+  }
+  .card-top { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; color: var(--muted); }
+  .cat { color: #6d5bd0; }
+  .name { font-family: var(--mono); font-size: 16.5px; margin: 12px 0 10px; overflow-wrap: break-word; }
+  .name .owner { color: var(--muted); }
+  .name b { color: #5b21b6; font-weight: 600; }
+  .desc { font-size: 14px; color: #3f4653; line-height: 1.65; margin: 0 0 10px; }
+  .hi { font-size: 13px; color: var(--dim); margin: 0 0 18px; }
+  .hi::before { content: "◆"; color: var(--a2); margin-right: 8px; font-size: 9px; vertical-align: 2px; }
+  .card-foot { display: flex; justify-content: space-between; align-items: center; }
+  .lang {
+    font-size: 12.5px; padding: 4px 11px; border-radius: 999px; font-family: var(--mono);
+    color: var(--c);
+    background: color-mix(in srgb, var(--c) 9%, #ffffff);
+    border: 1px solid color-mix(in srgb, var(--c) 30%, #ffffff);
+  }
+  .go { font-size: 13px; color: var(--muted); }
+
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 60px; line-height: 1.8; }
+  footer .dot { margin: 0 8px; color: #d4d8e2; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">📌</div>
+    <h1>repo-picks</h1>
+    <p class="tagline">随手收藏的有趣开源项目 · 不求全面，只记眼前一亮</p>
+    <div class="stats">
+      <span class="chip"><b>6</b> 个项目</span>
+      <span class="chip"><b>4</b> 个分类</span>
+      <span class="chip">AI 动态归类</span>
+      <span class="chip">MIT License</span>
+    </div>
+  </header>
+
+  <div class="filters">
+    <button class="active" data-f="all">全部</button>
+    <button data-f="JavaScript">JavaScript</button>
+    <button data-f="Python">Python</button>
+    <button data-f="Markdown">Markdown</button>
+    <button data-f="C">C</button>
+    <button data-f="Go">Go</button>
+  </div>
+
+  <main class="grid">
+    <a class="card" data-lang="JavaScript" href="https://github.com/affaan-m/ECC">
+      <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 309k</span></div>
+      <h2 class="name"><span class="owner">affaan-m/</span><b>ECC</b></h2>
+      <p class="desc">面向 Claude Code 等智能体的技能、记忆与安全调优框架。</p>
+      <p class="hi">模块化 Instincts 与上下文调优</p>
+      <div class="card-foot"><span class="lang" style="--c:#b45309">JavaScript</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Python" href="https://github.com/dmoshehun-prog/learn-from-materials">
+      <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 1.5k</span></div>
+      <h2 class="name"><span class="owner">dmoshehun-prog/</span><b>learn-from-materials</b></h2>
+      <p class="desc">将书籍论文转为可追溯、可测验的互动学习网页。</p>
+      <p class="hi">跨 Agent 规范，深度溯源防幻觉</p>
+      <div class="card-foot"><span class="lang" style="--c:#1e6bb8">Python</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Markdown" href="https://github.com/zenstory-ai/novel-to-game">
+      <div class="card-top"><span class="cat">🤖 智能体与 Agent 技能</span><span>★ 1.2k</span></div>
+      <h2 class="name"><span class="owner">zenstory-ai/</span><b>novel-to-game</b></h2>
+      <p class="desc">驱动 Agent 通读拆书并将小说自动改编为可玩游戏。</p>
+      <p class="hi">策划开发盲玩全链路技能闭环</p>
+      <div class="card-foot"><span class="lang" style="--c:#4b5563">Markdown</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="C" href="https://github.com/JustVugg/colibri">
+      <div class="card-top"><span class="cat">🧠 大模型与推理引擎</span><span>★ 53k</span></div>
+      <h2 class="name"><span class="owner">JustVugg/</span><b>colibri</b></h2>
+      <p class="desc">分层调度显存、内存与磁盘，让普通设备跑超大 MoE。</p>
+      <p class="hi">纯 C 编写，零门槛跑百亿参数模型</p>
+      <div class="card-foot"><span class="lang" style="--c:#475569">C</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="JavaScript" href="https://github.com/maillab/cloud-mail">
+      <div class="card-top"><span class="cat">🌐 云原生与实用服务</span><span>★ 17k</span></div>
+      <h2 class="name"><span class="owner">maillab/</span><b>cloud-mail</b></h2>
+      <p class="desc">基于 Cloudflare 的一站式自托管邮箱收发平台。</p>
+      <p class="hi">零服务器成本，自带 Web 客户端</p>
+      <div class="card-foot"><span class="lang" style="--c:#b45309">JavaScript</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Go" href="https://github.com/egoist/mygo">
+      <div class="card-top"><span class="cat">💻 桌面端与跨平台框架</span><span>★ 6.7k</span></div>
+      <h2 class="name"><span class="owner">egoist/</span><b>mygo</b></h2>
+      <p class="desc">用 Go 开发轻量原生 UI 或 Webview 桌面应用。</p>
+      <p class="hi">纯 Go 自绘原生界面，极速启动</p>
+      <div class="card-foot"><span class="lang" style="--c:#0e7490">Go</span><span class="go">查看 →</span></div>
+    </a>
+  </main>
+
+  <footer>
+    由 AI 在收录时动态归类与维护<span class="dot">·</span>repo-picks<span class="dot">·</span>MIT License
+  </footer>
+</div>
+
+<script>
+  const btns = document.querySelectorAll('.filters button');
+  const cards = [...document.querySelectorAll('.card')];
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.f;
+    cards.forEach(c => {
+      c.style.display = (f === 'all' || c.dataset.lang === f) ? '' : 'none';
+    });
+  }));
+</script>
+</body>
+</html>
