@@ -3,10 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
 <title>repo-picks · 随手收藏的有趣开源项目</title>
+<script>
+(function () {
+  var ls = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  var q = new URLSearchParams(location.search);
+  var t = q.get('theme') || ls('rp-theme');
+  if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.dataset.theme = t;
+  var l = q.get('lang') || ls('rp-lang');
+  if (l !== 'zh' && l !== 'en') l = (navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+  document.documentElement.dataset.lang = l;
+  document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+})();
+</script>
 <style>
   :root {
+    color-scheme: light;
     --bg: #f7f8fc;
     --card: #ffffff;
     --line: #e7e9f1;
@@ -16,6 +30,33 @@
     --a1: #2563eb;
     --a2: #0891b2;
     --mono: "Cascadia Code", Consolas, "SF Mono", Menlo, monospace;
+    --text2: #3f4653;
+    --hover: #a5b4fc;
+    --shadow: rgba(30, 64, 175, 0.12);
+    --chipbg: rgba(255, 255, 255, 0.7);
+    --selbg: #ffffff;
+    --selborder: #dfe3ee;
+    --catc: #2f5fd0;
+    --namec: #1d4ed8;
+  }
+  html[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0b0f17;
+    --card: #121826;
+    --line: #222c3d;
+    --text: #e6eaf2;
+    --dim: #9aa4b6;
+    --muted: #7b8496;
+    --a1: #60a5fa;
+    --a2: #22d3ee;
+    --text2: #c3cad8;
+    --hover: #3b82f6;
+    --shadow: rgba(0, 0, 0, 0.55);
+    --chipbg: rgba(255, 255, 255, 0.04);
+    --selbg: #151c2b;
+    --selborder: #2a3446;
+    --catc: #93c5fd;
+    --namec: #93c5fd;
   }
   * { box-sizing: border-box; }
   body {
@@ -28,7 +69,29 @@
     font-family: -apple-system, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     -webkit-font-smoothing: antialiased;
   }
+  html[data-theme="dark"] body {
+    background:
+      radial-gradient(1100px 560px at 10% -10%, rgba(37, 99, 235, 0.20), transparent 60%),
+      radial-gradient(900px 480px at 92% -6%, rgba(34, 211, 238, 0.10), transparent 58%),
+      var(--bg);
+  }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 56px 24px 72px; }
+
+  .topbar { display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .seg { display: flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); }
+  .seg button {
+    border: 0; background: transparent; color: var(--dim); font: inherit; font-size: 12.5px;
+    padding: 5px 12px; border-radius: 999px; cursor: pointer; transition: color 0.18s ease;
+  }
+  .seg button:hover { color: var(--text); }
+  .seg button.active { background: linear-gradient(90deg, #e0eaff, #cffafe); color: #1e3a8a; font-weight: 600; }
+  html[data-theme="dark"] .seg button.active { background: linear-gradient(90deg, #1e3a8a, #155e75); color: #e0f2fe; }
+  .icon-btn {
+    width: 34px; height: 34px; display: grid; place-items: center; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card); color: var(--dim);
+    font-size: 15px; line-height: 1; cursor: pointer; transition: color 0.18s ease, border-color 0.18s ease;
+  }
+  .icon-btn:hover { color: var(--text); border-color: var(--hover); }
 
   header { text-align: center; margin-bottom: 40px; }
   .logo {
@@ -46,30 +109,37 @@
     background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 45%, #0891b2 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
+  html[data-theme="dark"] h1 {
+    background: linear-gradient(90deg, #93c5fd 0%, #60a5fa 45%, #22d3ee 100%);
+    -webkit-background-clip: text; background-clip: text;
+  }
   .tagline { color: var(--dim); font-size: 16px; margin: 0 0 22px; }
   .stats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   .chip {
     padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px;
-    font-size: 13px; color: var(--dim); background: rgba(255, 255, 255, 0.7);
+    font-size: 13px; color: var(--dim); background: var(--chipbg);
   }
   .chip b { color: var(--text); font-weight: 600; }
 
   .toolbar {
     display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
     width: fit-content; max-width: 100%; margin: 32px auto 26px; padding: 10px 14px;
-    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
     box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   }
   .field { display: flex; align-items: center; gap: 8px; }
   .flabel { font-family: var(--mono); font-size: 12px; letter-spacing: 1.5px; color: var(--muted); }
   .toolbar select {
     appearance: none; -webkit-appearance: none; font: inherit; font-size: 13.5px; color: var(--text);
-    background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%235f6676' stroke-width='1.6' stroke-linecap='round'/></svg>") no-repeat right 12px center;
-    border: 1px solid #dfe3ee; border-radius: 999px; padding: 7px 32px 7px 14px; cursor: pointer;
+    background: var(--selbg) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%235f6676' stroke-width='1.6' stroke-linecap='round'/></svg>") no-repeat right 12px center;
+    border: 1px solid var(--selborder); border-radius: 999px; padding: 7px 32px 7px 14px; cursor: pointer;
     transition: border-color 0.18s ease, box-shadow 0.18s ease;
   }
-  .toolbar select:hover { border-color: #c3c9da; }
-  .toolbar select:focus { outline: none; border-color: #a5b4fc; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12); }
+  html[data-theme="dark"] .toolbar select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%239aa4b6' stroke-width='1.6' stroke-linecap='round'/></svg>");
+  }
+  .toolbar select:hover { border-color: var(--hover); }
+  .toolbar select:focus { outline: none; border-color: var(--hover); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12); }
   .count { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding-left: 4px; }
   @media (max-width: 640px) { .toolbar { width: 100%; justify-content: flex-start; } }
 
@@ -83,15 +153,15 @@
   }
   .card:hover {
     transform: translateY(-4px);
-    border-color: #a5b4fc;
-    box-shadow: 0 16px 40px rgba(30, 64, 175, 0.12);
+    border-color: var(--hover);
+    box-shadow: 0 16px 40px var(--shadow);
   }
   .card-top { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; color: var(--muted); }
-  .cat { color: #2f5fd0; }
+  .cat { color: var(--catc); }
   .name { font-family: var(--mono); font-size: 16.5px; margin: 12px 0 10px; overflow-wrap: break-word; }
   .name .owner { color: var(--muted); }
-  .name b { color: #1d4ed8; font-weight: 600; }
-  .desc { font-size: 14px; color: #3f4653; line-height: 1.65; margin: 0 0 10px; }
+  .name b { color: var(--namec); font-weight: 600; }
+  .desc { font-size: 14px; color: var(--text2); line-height: 1.65; margin: 0 0 10px; }
   .hi { font-size: 13px; color: var(--dim); margin: 0 0 18px; }
   .hi::before { content: "◆"; color: var(--a2); margin-right: 8px; font-size: 9px; vertical-align: 2px; }
   .card-foot { display: flex; justify-content: space-between; align-items: center; }
@@ -101,67 +171,79 @@
     background: color-mix(in srgb, var(--c) 9%, #ffffff);
     border: 1px solid color-mix(in srgb, var(--c) 30%, #ffffff);
   }
+  html[data-theme="dark"] .lang {
+    color: color-mix(in srgb, var(--c) 40%, #ffffff);
+    background: color-mix(in srgb, var(--c) 20%, transparent);
+    border-color: color-mix(in srgb, var(--c) 45%, transparent);
+  }
   .go { font-size: 13px; color: var(--muted); }
 
   footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 60px; line-height: 1.8; }
-  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px dotted #cfd6e4; }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px dotted var(--line); }
   footer a:hover { color: var(--a1); }
-  footer .dot { margin: 0 8px; color: #d4d8e2; }
+  footer .dot { margin: 0 8px; color: var(--line); }
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="topbar">
+    <div class="seg" id="lang-switch">
+      <button type="button" data-lang="zh">中文</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <button type="button" class="icon-btn" id="theme-btn" aria-label="切换亮暗主题">☀</button>
+  </div>
   <header>
     <div class="logo">&gt;_</div>
     <h1>repo-picks</h1>
     <p class="tagline">随手收藏的有趣开源项目 · 不求全面，只记眼前一亮</p>
     <div class="stats">
-      <span class="chip"><b>28</b> 个项目</span>
-      <span class="chip"><b>11</b> 个分类</span>
-      <span class="chip">AI 动态归类</span>
+      <span class="chip" id="chip-projects"><b>28</b> 个项目</span>
+      <span class="chip" id="chip-cats"><b>11</b> 个分类</span>
+      <span class="chip" id="chip-ai">AI 动态归类</span>
       <span class="chip">MIT License</span>
     </div>
   </header>
 
   <div class="toolbar">
     <div class="field">
-      <span class="flabel">分类</span>
+      <span class="flabel" data-i18n="cat">分类</span>
       <select id="f-cat">
         <option value="all">全部分类</option>
         <option value="agent">🤖 智能体与 Agent</option>
+        <option value="desktop">🧰 桌面效率</option>
         <option value="llm">🧠 大模型与推理</option>
         <option value="cloud">🌐 云原生服务</option>
-        <option value="desktop-fw">💻 桌面框架</option>
-        <option value="frontend">🎨 前端模板</option>
         <option value="network">🛰️ 网络代理</option>
         <option value="corpus">📚 语料书库</option>
-        <option value="desktop">🧰 桌面效率</option>
+        <option value="download">📥 下载与传输</option>
+        <option value="desktop-fw">💻 桌面框架</option>
+        <option value="frontend">🎨 前端模板</option>
         <option value="video">🎬 AI 视频创作</option>
         <option value="monitor">📡 智能监控</option>
-        <option value="download">📥 下载与传输</option>
       </select>
     </div>
     <div class="field">
-      <span class="flabel">语言</span>
+      <span class="flabel" data-i18n="lang">语言</span>
       <select id="f-lang">
         <option value="all">全部语言</option>
-        <option value="JavaScript">JavaScript</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="Python">Python</option>
-        <option value="Go">Go</option>
-        <option value="Rust">Rust</option>
         <option value="C">C</option>
         <option value="C++">C++</option>
-        <option value="Shell">Shell</option>
+        <option value="Go">Go</option>
+        <option value="JavaScript">JavaScript</option>
         <option value="Markdown">Markdown</option>
+        <option value="Python">Python</option>
+        <option value="Rust">Rust</option>
+        <option value="Shell">Shell</option>
+        <option value="TypeScript">TypeScript</option>
       </select>
     </div>
     <div class="field">
-      <span class="flabel">排序</span>
+      <span class="flabel" data-i18n="sort">排序</span>
       <select id="f-sort">
         <option value="default">默认顺序</option>
-        <option value="desc">★ 从高到低</option>
-        <option value="asc">★ 从低到高</option>
+        <option value="desc">↓ 从高到低</option>
+        <option value="asc">↑ 从低到高</option>
       </select>
     </div>
     <span class="count" id="count">28 / 28</span>
@@ -394,22 +476,166 @@
   </main>
 
   <footer>
-    由 AI 在收录时动态归类与维护<span class="dot">·</span><a href="https://github.com/MagicCube99/repo-picks">GitHub 仓库</a><span class="dot">·</span>MIT License
+    <span data-i18n="footLeft">由 AI 在收录时动态归类与维护</span><span class="dot">·</span><a href="https://github.com/MagicCube99/repo-picks" data-i18n="repoLink">GitHub 仓库</a><span class="dot">·</span>MIT License
   </footer>
 </div>
 
 <script>
+  const UI = {
+    zh: {
+      title: 'repo-picks · 随手收藏的有趣开源项目',
+      tagline: '随手收藏的有趣开源项目 · 不求全面，只记眼前一亮',
+      cat: '分类', lang: '语言', sort: '排序',
+      allCat: '全部分类', allLang: '全部语言',
+      sortDefault: '默认顺序', sortDesc: '↓ 从高到低', sortAsc: '↑ 从低到高',
+      footLeft: '由 AI 在收录时动态归类与维护', repoLink: 'GitHub 仓库',
+      projects: ' 个项目', categories: ' 个分类', aiTag: 'AI 动态归类', go: '查看 →'
+    },
+    en: {
+      title: 'repo-picks · hand-picked open source',
+      tagline: 'Hand-picked open-source projects · nothing exhaustive, just the ones that make you look twice',
+      cat: 'Category', lang: 'Language', sort: 'Sort',
+      allCat: 'All categories', allLang: 'All languages',
+      sortDefault: 'Default', sortDesc: '↓ High to low', sortAsc: '↑ Low to high',
+      footLeft: 'Dynamically curated and categorized by AI', repoLink: 'GitHub repo',
+      projects: ' projects', categories: ' categories', aiTag: 'AI auto-categorized', go: 'View →'
+    }
+  };
+  const CAT_FULL = {
+    zh: {
+      agent: '🤖 智能体与 Agent 技能', llm: '🧠 大模型与推理引擎', cloud: '🌐 云原生与实用服务',
+      'desktop-fw': '💻 桌面端与跨平台框架', frontend: '🎨 前端与界面模板', network: '🛰️ 网络与代理工具',
+      corpus: '📚 语料与电子书宝库', desktop: '🧰 桌面效率工具', video: '🎬 AI 视频与内容创作',
+      monitor: '📡 智能监控与自动化', download: '📥 下载与传输'
+    },
+    en: {
+      agent: '🤖 Agents & Skills', llm: '🧠 LLMs & Inference', cloud: '🌐 Cloud & Services',
+      'desktop-fw': '💻 Desktop & Cross-platform', frontend: '🎨 Frontend & UI Kits', network: '🛰️ Network & Proxies',
+      corpus: '📚 Corpora & Books', desktop: '🧰 Desktop Utilities', video: '🎬 AI Video & Content',
+      monitor: '📡 Monitoring & Automation', download: '📥 Downloads & Transfer'
+    }
+  };
+  const CAT_OPT = {
+    zh: {
+      agent: '🤖 智能体与 Agent', llm: '🧠 大模型与推理', cloud: '🌐 云原生服务',
+      'desktop-fw': '💻 桌面框架', frontend: '🎨 前端模板', network: '🛰️ 网络代理',
+      corpus: '📚 语料书库', desktop: '🧰 桌面效率', video: '🎬 AI 视频创作',
+      monitor: '📡 智能监控', download: '📥 下载与传输'
+    },
+    en: {
+      agent: '🤖 Agents', llm: '🧠 LLMs', cloud: '🌐 Cloud',
+      'desktop-fw': '💻 Desktop FW', frontend: '🎨 Frontend', network: '🛰️ Network',
+      corpus: '📚 Books', desktop: '🧰 Desktop', video: '🎬 AI Video',
+      monitor: '📡 Monitor', download: '📥 Download'
+    }
+  };
+
+  const EN = {
+    'affaan-m/ECC': ['Skill, memory and safety tuning framework for coding agents.', 'Modular Instincts and context tuning'],
+    'dmoshehun-prog/learn-from-materials': ['Turn books and papers into traceable, quiz-ready learning pages.', 'Cross-agent spec with deep sourcing'],
+    'zenstory-ai/novel-to-game': ['Agents read a novel and turn it into a playable game.', 'Full skill loop: plan, build, blind-play'],
+    'cloudflare/security-audit-skill': ['Multi-stage security audit skills for coding agents.', 'Machine-readable and independently reviewable'],
+    'JCodesMore/ai-website-cloner-template': ['Clone any website in one shot with an AI agent.', 'One command rebuilds the whole frontend'],
+    'larashero3-dotcom/lieflat-gongwen': ['Measurable, acceptance-tested official document writing skill.', '1.02M-character corpus as a writing skill'],
+    'handsomestWei/patent-disclosure-skill': ['Patent idea mining and disclosure drafting skill.', 'From idea to full disclosure document'],
+    'JustVugg/colibri': ['Tiered VRAM, RAM and disk scheduling puts huge MoE on ordinary devices.', 'Pure C, 10B+ models on a laptop'],
+    'SoMarkAI/OXR': ['Fast, high-accuracy open-source document parsing model.', 'RSI self-improvement lifts accuracy'],
+    'maillab/cloud-mail': ['One-stop self-hosted mail platform on Cloudflare.', 'Zero server cost, built-in web client'],
+    'dromara/MyObj': ['Family private cloud drive written in Go.', 'Resumable and instant uploads, object-storage alternative'],
+    'egoist/mygo': ['Build lightweight native UI or Webview desktop apps in Go.', 'Pure Go native drawing, instant startup'],
+    'satnaing/shadcn-admin': ['Admin dashboard template built on shadcn/ui and Vite.', 'Ready-to-use modern admin skeleton'],
+    'MHSanaei/3x-ui': ['Multi-protocol, multi-user Xray proxy management panel.', 'Manage all Vmess/Vless in one screen'],
+    'yonggekkk/argosbx': ['One-click deploy script for Sing-box/Xray/Argo proxies.', 'Zero prompts, works on VPS and Docker'],
+    'chinese-poetry/chinese-poetry': ['The most complete Chinese poetry database and search toolkit.', '~10k poets, 300k+ poems'],
+    'jbiaojerry/ebook-treasure-chest': ['A library of ebook download links across platforms.', 'Fanbook and WeRead sources in one place'],
+    'lbjlaq/Antigravity-Manager': ['One-click multi-account switcher for Antigravity.', 'Built with Tauri v2, seamless switching'],
+    'Bush2021/pitstop': ['Deploy portable Chrome builds on Windows.', 'No install, carry versions anywhere'],
+    'LingCore/WinShun': ['Fast Windows search and launcher.', 'Pinyin instant file and full-text search'],
+    'nyakang/nyaterm': ['A modern remote terminal workspace.', 'Connection management and sessions together'],
+    'wadereye/Relyto.Maliang': ['Local-first AI photo manager and editor.', 'Rust+egui, native AI retouching'],
+    'FreeFallingSnow/SnowDesktop': ['Component-based Windows desktop organizer.', 'Widget storage plus Dock, fresh desktop'],
+    'tizuio/TizuMark-Markdown-Editor': ['A 9MB lightweight Markdown editor.', 'Live preview with math and diagrams'],
+    'harry0703/MoneyPrinterTurbo': ['One-click HD short video from a topic.', 'AI writes, voices and edits it all'],
+    'Usagi-org/ai-goofish-monitor': ['Real-time multi-task monitoring and analysis for Xianyu.', 'Idle-farm deals, AI compares prices'],
+    'zerx-lab/FluxDown': ['Rust-powered multi-protocol download manager.', 'HTTP/BT/streaming in one'],
+    'anefzaoui/misterdownloadmanager': ['Pure-Rust cross-platform download manager.', 'Open-source IDM alternative, site-compatible']
+  };
+
   const cards = [...document.querySelectorAll('.card')];
   const catSel = document.getElementById('f-cat');
   const langSel = document.getElementById('f-lang');
   const sortSel = document.getElementById('f-sort');
   const countEl = document.getElementById('count');
+  const chipProjects = document.getElementById('chip-projects');
+  const chipCats = document.getElementById('chip-cats');
+  const chipAi = document.getElementById('chip-ai');
+  const seg = document.getElementById('lang-switch');
+  const themeBtn = document.getElementById('theme-btn');
+
+  const store = {
+    get (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
 
   cards.forEach(c => {
     const t = c.querySelector('.card-top span:last-child').textContent.trim();
     const n = parseFloat(t.replace(/[^0-9.]/g, '')) || 0;
     c.dataset.stars = String(/k/i.test(t) ? n * 1000 : n);
+    const p = c.getAttribute('href').split('/');
+    c.dataset.repo = p.slice(-2).join('/');
+    const d = c.querySelector('.desc'), h = c.querySelector('.hi');
+    d.dataset.zh = d.textContent;
+    h.dataset.zh = h.textContent;
   });
+  const catCount = new Set(cards.map(c => c.dataset.cat)).size;
+
+  // 语言按首字母排序；分类按项目数量从多到少，数量相同保持原有顺序。
+  const catRank = {};
+  cards.forEach(c => { catRank[c.dataset.cat] = (catRank[c.dataset.cat] || 0) + 1; });
+  [...catSel.options]
+    .filter(o => o.value !== 'all')
+    .sort((a, b) => (catRank[b.value] || 0) - (catRank[a.value] || 0))
+    .forEach(o => catSel.appendChild(o));
+  [...langSel.options]
+    .filter(o => o.value !== 'all')
+    .sort((a, b) => a.value.localeCompare(b.value, 'en'))
+    .forEach(o => langSel.appendChild(o));
+
+  const applyLang = lang => {
+    const t = UI[lang];
+    document.documentElement.dataset.lang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = t.title;
+    document.querySelector('.tagline').textContent = t.tagline;
+    chipProjects.innerHTML = '<b>' + cards.length + '</b>' + t.projects;
+    chipCats.innerHTML = '<b>' + catCount + '</b>' + t.categories;
+    chipAi.textContent = t.aiTag;
+    document.querySelectorAll('.flabel').forEach(el => { el.textContent = t[el.dataset.i18n]; });
+    [...catSel.options].forEach(o => {
+      o.textContent = o.value === 'all' ? t.allCat : CAT_OPT[lang][o.value];
+    });
+    langSel.options[0].textContent = t.allLang;
+    sortSel.options[0].textContent = t.sortDefault;
+    sortSel.options[1].textContent = t.sortDesc;
+    sortSel.options[2].textContent = t.sortAsc;
+    document.querySelectorAll('[data-i18n="footLeft"]').forEach(el => { el.textContent = t.footLeft; });
+    document.querySelectorAll('[data-i18n="repoLink"]').forEach(el => { el.textContent = t.repoLink; });
+    cards.forEach(c => {
+      c.querySelector('.cat').textContent = CAT_FULL[lang][c.dataset.cat];
+      const d = c.querySelector('.desc'), h = c.querySelector('.hi');
+      const en = EN[c.dataset.repo];
+      d.textContent = lang === 'en' && en ? en[0] : d.dataset.zh;
+      h.textContent = lang === 'en' && en ? en[1] : h.dataset.zh;
+      c.querySelector('.go').textContent = t.go;
+    });
+    [...seg.querySelectorAll('button')].forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  };
+
+  const applyTheme = theme => {
+    document.documentElement.dataset.theme = theme;
+    themeBtn.textContent = theme === 'dark' ? '🌙' : '☀';
+    themeBtn.setAttribute('aria-label', theme === 'dark' ? '切换到亮色' : '切换到暗色');
+  };
 
   const apply = () => {
     const lang = langSel.value, cat = catSel.value, sort = sortSel.value;
@@ -432,6 +658,18 @@
   };
 
   [catSel, langSel, sortSel].forEach(s => s.addEventListener('change', apply));
+  seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    store.set('rp-lang', b.dataset.lang);
+    applyLang(b.dataset.lang);
+  }));
+  themeBtn.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    store.set('rp-theme', next);
+    applyTheme(next);
+  });
+
+  applyLang(document.documentElement.dataset.lang === 'en' ? 'en' : 'zh');
+  applyTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
 </script>
 </body>
 </html>
