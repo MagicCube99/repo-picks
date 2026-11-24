@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://magiccube99.github.io/repo-picks/">
-    <img src="docs/banner-v4.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
+    <img src="docs/banner-v5.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
   </a>
 </div>
 
@@ -90,17 +90,21 @@
 ## 🎨 前端与界面模板
 
 <details>
-<summary>共 5 个项目（点击展开）</summary>
+<summary>共 9 个项目（点击展开）</summary>
 
 <br>
 
 | 项目 | 核心干啥的 | 亮点 / 为什么收录 |
 | :--- | :--- | :--- |
 | [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) `TypeScript` ![Stars](https://img.shields.io/github/stars/satnaing/shadcn-admin?style=flat-square&label=%20) | 基于 shadcn/ui 与 Vite 的后台管理面板模板。 | 开箱即用的现代 Admin 骨架 |
+| [shadcn-ui/ui](https://github.com/shadcn-ui/ui) `TypeScript` ![Stars](https://img.shields.io/github/stars/shadcn-ui/ui?style=flat-square&label=%20) | 把组件源码复制进项目的 React 组件集。 | 源码复制进项目，改到爽 |
 | [chakra-ui/chakra-ui](https://github.com/chakra-ui/chakra-ui) `TypeScript` ![Stars](https://img.shields.io/github/stars/chakra-ui/chakra-ui?style=flat-square&label=%20) | 为 React 打造的可组合、无障碍组件系统。 | 主题令牌化，无障碍开箱即用 |
 | [heroui-inc/heroui](https://github.com/heroui-inc/heroui) `TypeScript` ![Stars](https://img.shields.io/github/stars/heroui-inc/heroui?style=flat-square&label=%20) | 基于 Tailwind 的精美 React 组件库。 | 前身 NextUI，动效丝滑 |
 | [mantinedev/mantine](https://github.com/mantinedev/mantine) `TypeScript` ![Stars](https://img.shields.io/github/stars/mantinedev/mantine?style=flat-square&label=%20) | 组件与 Hooks 齐全的 React UI 库。 | 组件最全，hooks 开箱即用 |
 | [cosscom/ui](https://github.com/cosscom/ui) `TypeScript` ![Stars](https://img.shields.io/github/stars/cosscom/ui?style=flat-square&label=%20) | Cal.com 官方设计系统，前身 Origin UI。 | Cal.com 生产环境实战打磨 |
+| [DavidHDev/react-bits](https://github.com/DavidHDev/react-bits) `JavaScript` ![Stars](https://img.shields.io/github/stars/DavidHDev/react-bits?style=flat-square&label=%20) | 海量动画与交互 React 组件，复制即用。 | 动效炫酷，海量可选 |
+| [radix-ui/primitives](https://github.com/radix-ui/primitives) `TypeScript` ![Stars](https://img.shields.io/github/stars/radix-ui/primitives?style=flat-square&label=%20) | 无样式的无障碍 React 组件原语。 | shadcn/ui 的地基 |
+| [saadeghi/daisyui](https://github.com/saadeghi/daisyui) `JavaScript` ![Stars](https://img.shields.io/github/stars/saadeghi/daisyui?style=flat-square&label=%20) | 零 JS 的 Tailwind 组件类插件。 | 纯 CSS，类名即组件 |
 
 </details>
 
