@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://magiccube99.github.io/repo-picks/">
-    <img src="docs/banner-v5.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
+    <img src="docs/banner-v6.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
   </a>
 </div>
 
@@ -30,7 +30,7 @@
 ## 🤖 智能体与 Agent 技能
 
 <details>
-<summary>共 7 个项目（点击展开）</summary>
+<summary>共 8 个项目（点击展开）</summary>
 
 <br>
 
@@ -43,6 +43,7 @@
 | [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) `TypeScript` ![Stars](https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat-square&label=%20) | 用 AI 智能体一键克隆任意网站。 | 一条命令复刻整站前端 |
 | [larashero3-dotcom/lieflat-gongwen](https://github.com/larashero3-dotcom/lieflat-gongwen) `Python` ![Stars](https://img.shields.io/github/stars/larashero3-dotcom/lieflat-gongwen?style=flat-square&label=%20) | 量化可验收的公文写作技能。 | 102 万字语料炼成写作 skill |
 | [handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill) `Python` ![Stars](https://img.shields.io/github/stars/handsomestWei/patent-disclosure-skill?style=flat-square&label=%20) | 专利点挖掘与交底书编写技能。 | 从创意到交底书全流程 |
+| [oil-oil/oil-ui](https://github.com/oil-oil/oil-ui) `Python` ![Stars](https://img.shields.io/github/stars/oil-oil/oil-ui?style=flat-square&label=%20) | 给 AI 编程智能体用的 UI/UX 设计技能。 | 多方向对比，对着截图迭代 |
 
 </details>
 
