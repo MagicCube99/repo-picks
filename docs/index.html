@@ -207,8 +207,8 @@
     <h1>repo-picks</h1>
     <p class="tagline">随手收藏的有趣开源项目 · 不求全面，只记眼前一亮</p>
     <div class="stats">
-      <span class="chip" id="chip-projects"><b>29</b> 个项目</span>
-      <span class="chip" id="chip-cats"><b>12</b> 个分类</span>
+      <span class="chip" id="chip-projects"><b>31</b> 个项目</span>
+      <span class="chip" id="chip-cats"><b>13</b> 个分类</span>
       <span class="chip" id="chip-ai">AI 动态归类</span>
       <span class="chip">MIT License</span>
     </div>
@@ -231,6 +231,7 @@
         <option value="video">🎬 AI 视频创作</option>
         <option value="monitor">📡 智能监控</option>
         <option value="wasm">⚡ WebAssembly 高性能库</option>
+        <option value="ime">⌨️ 输入法词库</option>
       </select>
     </div>
     <div class="field">
@@ -241,6 +242,7 @@
         <option value="C++">C++</option>
         <option value="Go">Go</option>
         <option value="JavaScript">JavaScript</option>
+        <option value="Lua">Lua</option>
         <option value="Markdown">Markdown</option>
         <option value="Python">Python</option>
         <option value="Rust">Rust</option>
@@ -256,7 +258,7 @@
         <option value="asc">↑ 从低到高</option>
       </select>
     </div>
-    <span class="count" id="count">29 / 29</span>
+    <span class="count" id="count">31 / 31</span>
   </div>
 
   <main class="grid">
@@ -491,6 +493,22 @@
       <p class="hi">手调 WASM，浏览器极速哈希</p>
       <div class="card-foot"><span class="lang" style="--c:#1d4ed8">TypeScript</span><span class="go">查看 →</span></div>
     </a>
+
+    <a class="card" data-lang="Lua" data-cat="ime" href="https://github.com/iDvel/rime-ice">
+      <div class="card-top"><span class="cat">⌨️ 输入法与词库</span><span>★ 20k</span></div>
+      <h2 class="name"><span class="owner">iDvel/</span><b>rime-ice</b></h2>
+      <p class="desc">开箱即用、长期维护的简体中文 Rime 词库。</p>
+      <p class="hi">离线精校词库，一键部署即用</p>
+      <div class="card-foot"><span class="lang" style="--c:#2c2d72">Lua</span><span class="go">查看 →</span></div>
+    </a>
+
+    <a class="card" data-lang="Lua" data-cat="ime" href="https://github.com/gaboolic/rime-frost">
+      <div class="card-top"><span class="cat">⌨️ 输入法与词库</span><span>★ 3.9k</span></div>
+      <h2 class="name"><span class="owner">gaboolic/</span><b>rime-frost</b></h2>
+      <p class="desc">重制字词频的 Rime 中文输入方案与词库。</p>
+      <p class="hi">评测准确率不输商业输入法</p>
+      <div class="card-foot"><span class="lang" style="--c:#2c2d72">Lua</span><span class="go">查看 →</span></div>
+    </a>
   </main>
 
   <footer>
@@ -524,13 +542,15 @@
       agent: '🤖 智能体与 Agent 技能', llm: '🧠 大模型与推理引擎', cloud: '🌐 云原生与实用服务',
       'desktop-fw': '💻 桌面端与跨平台框架', frontend: '🎨 前端与界面模板', network: '🛰️ 网络与代理工具',
       corpus: '📚 语料与电子书宝库', desktop: '🧰 桌面效率工具', video: '🎬 AI 视频与内容创作',
-      monitor: '📡 智能监控与自动化', download: '📥 下载与传输', wasm: '⚡ WebAssembly 与高性能库'
+      monitor: '📡 智能监控与自动化', download: '📥 下载与传输', wasm: '⚡ WebAssembly 与高性能库',
+      ime: '⌨️ 输入法与词库'
     },
     en: {
       agent: '🤖 Agents & Skills', llm: '🧠 LLMs & Inference', cloud: '🌐 Cloud & Services',
       'desktop-fw': '💻 Desktop & Cross-platform', frontend: '🎨 Frontend & UI Kits', network: '🛰️ Network & Proxies',
       corpus: '📚 Corpora & Books', desktop: '🧰 Desktop Utilities', video: '🎬 AI Video & Content',
-      monitor: '📡 Monitoring & Automation', download: '📥 Downloads & Transfer', wasm: '⚡ WebAssembly Libraries'
+      monitor: '📡 Monitoring & Automation', download: '📥 Downloads & Transfer', wasm: '⚡ WebAssembly Libraries',
+      ime: '⌨️ Input Methods & Dictionaries'
     }
   };
   const CAT_OPT = {
@@ -538,13 +558,15 @@
       agent: '🤖 智能体与 Agent', llm: '🧠 大模型与推理', cloud: '🌐 云原生服务',
       'desktop-fw': '💻 桌面框架', frontend: '🎨 前端模板', network: '🛰️ 网络代理',
       corpus: '📚 语料书库', desktop: '🧰 桌面效率', video: '🎬 AI 视频创作',
-      monitor: '📡 智能监控', download: '📥 下载与传输', wasm: '⚡ WebAssembly 高性能库'
+      monitor: '📡 智能监控', download: '📥 下载与传输', wasm: '⚡ WebAssembly 高性能库',
+      ime: '⌨️ 输入法词库'
     },
     en: {
       agent: '🤖 Agents', llm: '🧠 LLMs', cloud: '🌐 Cloud',
       'desktop-fw': '💻 Desktop FW', frontend: '🎨 Frontend', network: '🛰️ Network',
       corpus: '📚 Books', desktop: '🧰 Desktop', video: '🎬 AI Video',
-      monitor: '📡 Monitor', download: '📥 Download', wasm: '⚡ WASM'
+      monitor: '📡 Monitor', download: '📥 Download', wasm: '⚡ WASM',
+      ime: '⌨️ Input Methods'
     }
   };
 
@@ -577,7 +599,9 @@
     'Usagi-org/ai-goofish-monitor': ['Real-time multi-task monitoring and analysis for Xianyu.', 'Idle-farm deals, AI compares prices'],
     'zerx-lab/FluxDown': ['Rust-powered multi-protocol download manager.', 'HTTP/BT/streaming in one'],
     'anefzaoui/misterdownloadmanager': ['Pure-Rust cross-platform download manager.', 'Open-source IDM alternative, site-compatible'],
-    'Daninet/hash-wasm': ['Hand-tuned WebAssembly hashing library with blazing speed.', 'WASM-fast MD5/SHA/Argon2 in the browser']
+    'Daninet/hash-wasm': ['Hand-tuned WebAssembly hashing library with blazing speed.', 'WASM-fast MD5/SHA/Argon2 in the browser'],
+    'iDvel/rime-ice': ['Batteries-included, long-maintained simplified-Chinese Rime config.', 'Offline curated dictionary, one-click setup'],
+    'gaboolic/rime-frost': ['Rime pinyin scheme with rebuilt character and word frequencies.', 'Benchmarks beat commercial IMEs']
   };
 
   const cards = [...document.querySelectorAll('.card')];
