@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://magiccube99.github.io/repo-picks/">
-    <img src="docs/banner.svg?v=2" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
+    <img src="docs/banner-v2.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
   </a>
 </div>
 
