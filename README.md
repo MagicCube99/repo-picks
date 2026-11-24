@@ -5,8 +5,7 @@
 </div>
 
 <p align="center">
-  <a href="https://magiccube99.github.io/repo-picks/"><b>🌐 在线浏览</b></a>
-  &nbsp;·&nbsp; 中英双语 · 暗色主题 · AI 动态归类
+  中英双语 · 暗色主题 · AI 动态归类
 </p>
 
 ---
