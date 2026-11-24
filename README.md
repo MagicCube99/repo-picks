@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://magiccube99.github.io/repo-picks/">
-    <img src="docs/banner-v3.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
+    <img src="docs/banner-v4.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
   </a>
 </div>
 
@@ -90,13 +90,17 @@
 ## 🎨 前端与界面模板
 
 <details>
-<summary>共 1 个项目（点击展开）</summary>
+<summary>共 5 个项目（点击展开）</summary>
 
 <br>
 
 | 项目 | 核心干啥的 | 亮点 / 为什么收录 |
 | :--- | :--- | :--- |
 | [satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin) `TypeScript` ![Stars](https://img.shields.io/github/stars/satnaing/shadcn-admin?style=flat-square&label=%20) | 基于 shadcn/ui 与 Vite 的后台管理面板模板。 | 开箱即用的现代 Admin 骨架 |
+| [chakra-ui/chakra-ui](https://github.com/chakra-ui/chakra-ui) `TypeScript` ![Stars](https://img.shields.io/github/stars/chakra-ui/chakra-ui?style=flat-square&label=%20) | 为 React 打造的可组合、无障碍组件系统。 | 主题令牌化，无障碍开箱即用 |
+| [heroui-inc/heroui](https://github.com/heroui-inc/heroui) `TypeScript` ![Stars](https://img.shields.io/github/stars/heroui-inc/heroui?style=flat-square&label=%20) | 基于 Tailwind 的精美 React 组件库。 | 前身 NextUI，动效丝滑 |
+| [mantinedev/mantine](https://github.com/mantinedev/mantine) `TypeScript` ![Stars](https://img.shields.io/github/stars/mantinedev/mantine?style=flat-square&label=%20) | 组件与 Hooks 齐全的 React UI 库。 | 组件最全，hooks 开箱即用 |
+| [cosscom/ui](https://github.com/cosscom/ui) `TypeScript` ![Stars](https://img.shields.io/github/stars/cosscom/ui?style=flat-square&label=%20) | Cal.com 官方设计系统，前身 Origin UI。 | Cal.com 生产环境实战打磨 |
 
 </details>
 
