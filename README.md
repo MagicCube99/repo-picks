@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://magiccube99.github.io/repo-picks/">
-    <img src="docs/banner-v6.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
+    <img src="docs/banner-v7.svg" alt="repo-picks · 随手收藏的有趣开源项目" width="100%">
   </a>
 </div>
 
@@ -24,6 +24,7 @@
 - [📥 下载与传输](#-下载与传输)
 - [⚡ WebAssembly 与高性能库](#-webassembly-与高性能库)
 - [⌨️ 输入法与词库](#-输入法与词库)
+- [🔌 AI 网关与订阅中转](#-ai-网关与订阅中转)
 
 ---
 
@@ -212,7 +213,7 @@
 ## ⌨️ 输入法与词库
 
 <details>
-<summary>共 2 个项目（点击展开）
+<summary>共 2 个项目（点击展开）</summary>
 
 <br>
 
@@ -220,5 +221,18 @@
 | :--- | :--- | :--- |
 | [iDvel/rime-ice](https://github.com/iDvel/rime-ice) `Lua` ![Stars](https://img.shields.io/github/stars/iDvel/rime-ice?style=flat-square&label=%20) | 开箱即用、长期维护的简体中文 Rime 词库。 | 离线精校词库，一键部署即用 |
 | [gaboolic/rime-frost](https://github.com/gaboolic/rime-frost) `Lua` ![Stars](https://img.shields.io/github/stars/gaboolic/rime-frost?style=flat-square&label=%20) | 重制字词频的 Rime 中文输入方案与词库。 | 评测准确率不输商业输入法 |
+
+</details>
+
+## 🔌 AI 网关与订阅中转
+
+<details>
+<summary>共 1 个项目（点击展开）</summary>
+
+<br>
+
+| 项目 | 核心干啥的 | 亮点 / 为什么收录 |
+| :--- | :--- | :--- |
+| [Wei-Shaw/sub2api](https://github.com/Wei-Shaw/sub2api) `Go` ![Stars](https://img.shields.io/github/stars/Wei-Shaw/sub2api?style=flat-square&label=%20) | 把各家大模型订阅统一成一套 API 中转。 | 拼车分摊成本，原生工具直连 |
 
 </details>
